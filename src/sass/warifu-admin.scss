@@ -1,0 +1,43 @@
+.warifu{
+
+  &-log{
+    padding: 0;
+    &-item{
+      margin: 0;
+      padding: 1em;
+      border-bottom: 1px solid #ddd;
+      &:first-child{
+        border-top: 1px solid #ddd;
+      }
+      &-error{
+        background: #ffd1d6;
+        p{
+          color: #bb4446;
+        }
+      }
+    }
+    &-text{
+    }
+    &-meta{
+      font-size: 0.9em;
+      color: #888;
+      .dashicons{
+        color: #aaa;
+      }
+      &-item{
+        display: inline-block;
+        margin-right: 1em;
+      }
+    }
+  }
+
+  &-license{
+    &-list{
+
+    }
+    &-item{
+
+    }
+  }
+
+}
