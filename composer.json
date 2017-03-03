@@ -1,0 +1,16 @@
+{
+    "name": "hametuha/warifu",
+    "description": "A WordPress premium plugin distributor works with Gumroad.",
+    "type": "library",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "fumikito",
+            "email": "guy@hametuha.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "hametuha/sekisyo": "dev-master"
+    }
+}

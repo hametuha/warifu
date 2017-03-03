@@ -1,0 +1,17 @@
+{
+  "name": "warifu",
+  "description": "warifu Gulp Tasks",
+  "main": "gulpfile.js",
+  "authors": [
+    "Hametuha inc."
+  ],
+  "license": "GPL-2.0",
+  "keywords": [
+    "gumroad",
+    "wordpress"
+  ],
+  "homepage": "https://gianism.info/add-on/warifu",
+  "dependencies": {
+    "lumx": "^1.2.7"
+  }
+}

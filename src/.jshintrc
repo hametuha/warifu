@@ -1,0 +1,15 @@
+{
+  "strict" : true,
+  "indent" : 2,
+  "unused" : false,
+  "undef" : true,
+  "browser" : true,
+  "devel" : false,
+  "debug"    : true,
+  "jquery": true,
+  "globals": {
+    "angular": false,
+    "google": false,
+    "ga": false
+  }
+}

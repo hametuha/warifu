@@ -1,0 +1,57 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "1b56d7211ce11f34b14b644438d5239c",
+    "content-hash": "b503ffd3cb3ef0517b520de0a53ddd7d",
+    "packages": [
+        {
+            "name": "hametuha/sekisyo",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hametuha/sekisyo.git",
+                "reference": "9223d18b7292785710d0a1be268aa11c786a2db4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hametuha/sekisyo/zipball/9223d18b7292785710d0a1be268aa11c786a2db4",
+                "reference": "9223d18b7292785710d0a1be268aa11c786a2db4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Hametuha\\Sekisyo\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Hametuha INC.",
+                    "email": "info@hametuha.co.jp"
+                }
+            ],
+            "description": "Premium plugin library for WordPress",
+            "time": "2017-03-03 16:09:10"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "hametuha/sekisyo": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

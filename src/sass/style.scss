@@ -1,0 +1,131 @@
+.inner{
+  position: relative;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 10px;
+  &.wrapper{
+    padding: 0 0 30px;
+  }
+}
+
+header{
+  .inner{
+    position: relative;
+  }
+  border-bottom: 1px solid #ddd;
+  h1{
+    text-align: center;
+    font-size: 18px;
+    padding: 30px 0;
+    small{
+      font-size: 12px;
+      display: block;
+      color: #666;
+    }
+  }
+  a{
+    position: absolute !important;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.main{
+  background: #fff;
+  padding: 30px 0;
+}
+
+.warifu-license-total{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+// List
+.license-list{
+  position: relative;
+  min-height: 200px;
+  &:before{
+    content: "";
+    display: block;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    opacity: .3;
+    z-index: 2;
+    background: url("../img/gumroad-logo.png") center center no-repeat;
+    background-size: contain;
+  }
+
+  &.loading:before{
+    z-index: 10;
+  }
+  &.loading:after{
+    position: absolute;
+    display: block;
+    box-sizing: content-box;
+    z-index: 9;
+    content: "Loading...";
+    text-align: center;
+    vertical-align: middle;
+    line-height: 200px;
+    background: rgba(0, 0, 0, .2);
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    top: 0;
+    left: 0;
+  }
+
+  .list{
+    position: relative;
+    z-index: 3;
+    &-row{
+      &__secondary{
+        .mdi{
+          color: #888;
+        }
+      }
+    }
+  }
+}
+
+
+// Detail
+.license{
+  &-detail {
+    position: relative;
+  }
+  &-empty{
+    position: absolute;
+    background: #f9f9f9;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    img{
+      opacity: .4;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &-table{
+    width: 100%;
+    table-layout: auto;
+    border-collapse:collapse;
+    th, td{
+      padding: 1em;
+      border-bottom: 1px solid #ddd;
+    }
+    th{
+      text-align: right;
+    }
+  }
+}
