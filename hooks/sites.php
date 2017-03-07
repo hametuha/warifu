@@ -122,7 +122,7 @@ add_action( 'manage_registered-site_posts_custom_column', function ( $column, $p
 		case 'parent':
 			printf(
 				'<a href="%s">%s</a>',
-				esc_url( admin_url( "edit.php?post_type=license&page=registered-sites&parent=$post->post_parent" ) ),
+				esc_url( admin_url( "edit.php?post_type=registered-sites&parent=$post->post_parent" ) ),
 				warifu_guid( $post->post_parent )
 			);
 			break;
@@ -130,7 +130,7 @@ add_action( 'manage_registered-site_posts_custom_column', function ( $column, $p
 			if ( $owner = warifu_license_owner( warifu_guid( $post ), warifu_get_license( $post ) ) ) {
 				printf(
 					'<a href="%s">%s</a>',
-					esc_url( admin_url( "edit.php?post_type=license&page=registered-sites&author={$owner->ID}" ) ),
+					esc_url( admin_url( "edit.php?post_type=registered-sites&author={$owner->ID}" ) ),
 					esc_html( $owner->display_name )
 				);
 			} else {

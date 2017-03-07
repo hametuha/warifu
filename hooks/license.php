@@ -179,7 +179,7 @@ add_action( 'manage_license_posts_custom_column', function ( $column, $post_id )
 			if ( $license = warifu_guid( $post_id ) ) {
 				printf(
 					'<a href="%s">%s</a>',
-					esc_url( admin_url( "edit.php?post_type=license&page=registered-sites&parent={$post_id}" ) ),
+					esc_url( admin_url( "edit.php?post_type=registered-sites&parent={$post_id}" ) ),
 					esc_html( $license )
 				);
 			} else {
@@ -204,7 +204,7 @@ add_action( 'manage_license_posts_custom_column', function ( $column, $post_id )
 			] );
 			printf(
 				'<a href="%s">%s</a>',
-				esc_url( admin_url( "edit.php?post_type=license&page=registered-sites&parent={$post_id}" ) ),
+				esc_url( admin_url( "edit.php?post_type=registered-sites&parent={$post_id}" ) ),
 				number_format( $count )
 			);
 			break;
