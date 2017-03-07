@@ -30,12 +30,14 @@ function warifu_add_log( $log, $error = false, $post = null, $args = [] ) {
 	$post = get_post( $post );
 	$args['comment_post_ID'] = $post->ID;
 	$args['comment_content'] = $log;
-	$args['comment_approved'] = $error ? '' : '1';
+	$args['comment_approved'] = '1';
 	$args['comment_type'] = 'warifu_log';
-	$args['comment_approved'] = $error ? '0' : '1';
-	return wp_insert_comment( $args )
-		? true
-		: new WP_Error( 500, __( 'Failed to add log.', 'warifu' ) );
+	if ( $comment_id = wp_insert_comment( $args ) ) {
+		update_comment_meta( $comment_id, '_warifu_is_error', $error );
+		return true;
+	} else {
+		return new WP_Error( 500, __( 'Failed to add log.', 'warifu' ) );
+	}
 }
 
 /**
@@ -45,7 +47,7 @@ function warifu_add_log( $log, $error = false, $post = null, $args = [] ) {
  */
 function warifu_render_log( $comment ) {
 	?>
-	<li class="warifu-log-item <?php echo esc_attr( $comment->comment_approved ? '' : ' warifu-log-item-error' ) ?>">
+	<li class="warifu-log-item <?php echo esc_attr( get_comment_meta( $comment->comment_ID, '_warifu_is_error', true ) ? ' warifu-log-item-error' : '' ) ?>">
 		<div class="warifu-log-text">
 			<?php echo wpautop( $comment->comment_content ) ?>
 		</div>

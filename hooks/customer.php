@@ -4,6 +4,21 @@
  */
 
 /**
+ * Register post type
+ */
+add_action( 'init', function() {
+	register_post_type( 'customer', [
+		'label'             => __( 'Customers', 'warifu' ),
+		'public'            => false,
+		'show_ui'           => true,
+		'show_in_menu'      => 'edit.php?post_type=license',
+		'show_in_nav_menus' => false,
+		'show_in_admin_bar' => false,
+		'supports'          => false,
+	] );
+} );
+
+/**
  * Add meta boxes
  */
 add_action( 'add_meta_boxes', function( $post_type ) {
@@ -14,14 +29,6 @@ add_action( 'add_meta_boxes', function( $post_type ) {
 				'post' => $post,
 			] );
 		}, $post_type, 'normal', 'high' );
-
-	}
-	if ( false !== array_search( $post_type, [ 'customer', 'registered-site' ] ) ) {
-		add_meta_box( 'warifu-user-log', __( 'Log', 'warifu' ), function( $post ) {
-			warifu_template( 'admin-customer-log', [
-				'post' => $post,
-			] );
-		}, $post_type, 'advanced' );
 	}
 } );
 
@@ -72,7 +79,7 @@ add_action( 'save_post', function( $post_id, $post ) {
 	if ( $old_parent != $new_parent ) {
 		if ( ! $parent || 'license' != $parent->post_type ) {
 			// Parent is wrong.
-			warifu_add_log( __( 'Wrong parameter is specified. Producthas invalid post type.', 'warifu' ), true, $post );
+			warifu_add_log( __( 'Wrong parameter is specified. Product has invalid post type.', 'warifu' ), true, $post );
 			return;
 		} else {
 			// O.K. Save new parent.

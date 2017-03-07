@@ -6,11 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp build && gulp watch",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "bower": "bower install"
   },
   "author": "Hametuha inc.",
   "license": "GPL-2.0",
   "devDependencies": {
+    "bower": "^1.8.0",
     "event-stream": "^3.3.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",

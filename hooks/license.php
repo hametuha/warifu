@@ -41,23 +41,6 @@ add_action( 'init', function () {
 	$args = apply_filters( 'warifu_post_type_args', $args );
 	register_post_type( 'license', $args );
 
-	register_post_type( 'registered-site', [
-		'label'             => __( 'Registered Sites', 'warifu' ),
-		'public'            => false,
-		'show_ui'           => false,
-		'show_in_nav_menus' => false,
-		'show_in_admin_bar' => false,
-	] );
-
-	register_post_type( 'customer', [
-		'label'             => __( 'Customers', 'warifu' ),
-		'public'            => false,
-		'show_ui'           => true,
-		'show_in_menu'      => 'edit.php?post_type=license',
-		'show_in_nav_menus' => false,
-		'show_in_admin_bar' => false,
-		'supports'          => false,
-	] );
 } );
 
 
@@ -79,7 +62,7 @@ add_action( 'add_meta_boxes', function ( $post_type ) {
 				printf(
 					'<a href="%s">%s</a>',
 					admin_url( "edit.php?post_type=license&page=registered-sites&parent={$post->ID}" ),
-					_n( '1 site registered.', '%d sites registered.', $count, 'warifu' )
+					_n( '%d site registered.', '%d sites registered.', $count, 'warifu' )
 				);
 			} else {
 				esc_html_e( 'No site registered.', 'warifu' );
@@ -140,7 +123,7 @@ add_action( 'add_meta_boxes', function ( $post_type ) {
 			<?php echo warifu_gumroad_embed( $post ) ?>
 		<?php else : ?>
 			<p class="description">
-				<?php esc_html_e( 'If you enter Guroad GUID, widgets will be embed', 'warifu' ) ?>
+				<?php esc_html_e( 'If you enter Gumroad GUID, widgets will be embed', 'warifu' ) ?>
 			</p>
 		<?php endif; ?>
 		<?php

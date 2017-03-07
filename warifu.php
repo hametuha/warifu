@@ -23,13 +23,19 @@ try {
 		throw new Exception( sprintf( __( '[Warifu] PHP <code>%s</code> is required, but your version is <code>%s</code>. So this plugin is still in silence. Please contact server administrator.', 'warifu' ), $warifu_info['php'], phpversion() ) );
 	}
 	// Composer
-	require __DIR__.'/vendor/autoload.php';
+	require dirname( __FILE__ ).'/vendor/autoload.php';
+	// Include Sekisyo
+	include dirname( __FILE__ ) . '/sekisyo.php';
 	// Load functions
-	foreach ( array( 'hooks', 'functions', 'classes' ) as $dir_name ) {
-		$dir = __DIR__.'/'.$dir_name.'/';
+	$dirs = array( 'functions', 'classes' );
+	if ( apply_filters( 'warifu_is_sekisyo_passed', true ) ) {
+		$dirs[] = 'hooks';
+	}
+	foreach ( $dirs as $dir_name ) {
+		$dir = dirname( __FILE__ ) . '/' . $dir_name . '/';
 		foreach ( scandir( $dir ) as $file ) {
 			if ( preg_match( '#^[^.](.*)\.php$#u', $file ) ) {
-				require $dir.$file;
+				require $dir . $file;
 			}
 		}
 	}

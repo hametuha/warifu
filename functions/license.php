@@ -389,3 +389,42 @@ function warifu_license_posts( $post = null, $args = [] ) {
 	] );
 	return get_posts( $args );
 }
+
+/**
+ * Get status label
+ *
+ * @param null|int|WP_Post $post
+ *
+ * @return string
+ */
+function warifu_status_label( $post = null ) {
+	$post = get_post( $post );
+	switch ( $post->post_status ) {
+		case 'publish':
+			$color = 'green';
+			$label = __( 'Active', 'warifu' );
+			$icon  = 'yes';
+			break;
+		case 'private':
+			$color = 'grey';
+			$label = __( 'Inactive', 'warifu' );
+			$icon  = 'minus';
+			break;
+		default:
+			$color = 'red';
+			$label = __( 'Undefined', 'warifu' );
+			$icon  = 'no';
+			break;
+	}
+	return sprintf(
+		'<span style="color: %1$s"><span class="dashicons dashicons-%3$s"></span> %2$s</span>',
+		esc_attr( $color ),
+		esc_html( $label ),
+		esc_attr( $icon )
+	);
+}
+
+function warifu_last_checked( $post = null ) {
+	$post = get_post( $post );
+	$date = get_post_meta( $post->ID, '_warifu', true );
+}
