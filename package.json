@@ -8,6 +8,7 @@
     "start": "gulp build && gulp watch",
     "watch": "gulp watch",
     "build": "gulp build",
+    "package": "bower install && gulp build",
     "bower": "bower install"
   },
   "author": "Hametuha inc.",

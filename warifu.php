@@ -4,7 +4,7 @@ Plugin Name: Warifu
 Plugin URI: https://gianism.info/add-on/warifu/
 Description: A WordPress plugin which handles User have gumroad license key.
 Author: Hametuha INC.
-Version: 1.0.2
+Version: 1.0.3
 PHP Version: 5.5.0
 Author URI: https://gianism.info/
 Text Domain: warifu
