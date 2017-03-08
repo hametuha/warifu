@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hametuha/sekisyo.git",
-                "reference": "eff72bb7520346d2ab196b13bdc4c138288b4ee7"
+                "reference": "94db776153afffff50b876ef1181e665e699c9a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hametuha/sekisyo/zipball/eff72bb7520346d2ab196b13bdc4c138288b4ee7",
-                "reference": "eff72bb7520346d2ab196b13bdc4c138288b4ee7",
+                "url": "https://api.github.com/repos/hametuha/sekisyo/zipball/94db776153afffff50b876ef1181e665e699c9a7",
+                "reference": "94db776153afffff50b876ef1181e665e699c9a7",
                 "shasum": ""
             },
             "require": {
@@ -41,7 +41,7 @@
                 }
             ],
             "description": "Premium plugin library for WordPress",
-            "time": "2017-03-07 04:55:30"
+            "time": "2017-03-08 10:14:23"
         }
     ],
     "packages-dev": [],
