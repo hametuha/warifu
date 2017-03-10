@@ -172,13 +172,19 @@ HTML;
  * Show gumroad button
  *
  * @param null|int|WP_Post $post
+ * @param array $args
  * @return string
  */
-function warifu_gumroad_button( $post = null ) {
+function warifu_gumroad_button( $post = null, $args = [] ) {
 	if ( ! ( $guid = warifu_guid( $post ) ) ) {
 		return '';
 	}
 	wp_enqueue_script( 'gumroad-button' );
+	$args = wp_parse_args( $args, [
+		'class_name' => 'gumroad-button',
+		'url'        => esc_url( "https://gum.co/{$guid}" ),
+		'label'      => esc_html( __( 'Buy at gumroad', 'warifu' ) ),
+	] );
 	/**
 	 * Filter display of gumroad button
 	 *
@@ -187,11 +193,7 @@ function warifu_gumroad_button( $post = null ) {
 	 * @param  string $context
 	 * @return array
 	 */
-	$vars = apply_filters( 'warifu_gumroad_embed', [
-		'class_name' => 'gumroad-button',
-	    'url'        => esc_url( "https://gum.co/{$guid}" ),
-	    'label'      => esc_html( __( 'Buy at gumroad', 'warifu' ) ),
-	], 'button' );
+	$vars = apply_filters( 'warifu_gumroad_embed', $args, 'button' );
 	return <<<HTML
 <a class="{$vars['class_name']}" href="{$vars['url']}" target="_blank">{$vars['label']}</a>
 HTML;

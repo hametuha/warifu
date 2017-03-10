@@ -85,6 +85,20 @@ add_action( 'add_meta_boxes', function ( $post_type ) {
 			</tr>
 			<tr>
 				<th valign="top">
+					<label for="warifu_price">
+						<?php esc_html_e( 'Price', 'warifu' ) ?>
+					</label>
+				</th>
+				<td>
+					<input class="regular-text" type="text" name="warifu_price" id="warifu_price"
+						   value="<?php echo esc_attr( warifu_price( $post ) ) ?>"/>
+					<p class="description">
+						<?php _e( 'This license price.', 'warifu' ) ?>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<th valign="top">
 					<label for="warifu_limit">
 						<?php esc_html_e( 'Register Limit', 'warifu' ) ?>
 					</label>
@@ -146,7 +160,7 @@ add_action( 'save_post', function ( $post_id, $post ) {
 		return;
 	}
 	// Save information.
-	foreach ( [ 'warifu_guid', 'warifu_limit' ] as $key ) {
+	foreach ( [ 'warifu_guid', 'warifu_limit', 'warifu_price' ] as $key ) {
 		if ( isset( $_POST[ $key ] ) ) {
 			update_post_meta( $post_id, '_' . $key, $_POST[ $key ] );
 		}
@@ -163,6 +177,7 @@ add_filter( 'manage_license_posts_columns', function ( $columns ) {
 		if ( 'title' == $key ) {
 			$new_columns['guid']  = 'GUID';
 			$new_columns['count'] = __( 'Site', 'warifu' );
+			$new_columns['price'] = __( 'Price', 'warifu' );
 		}
 	}
 	$new_columns['parent'] = __( 'Parent', 'warifu' );
@@ -183,7 +198,15 @@ add_action( 'manage_license_posts_custom_column', function ( $column, $post_id )
 					esc_html( $license )
 				);
 			} else {
-				echo '---';
+				echo '<span style="color: lightgrey">---</span>';
+			}
+			break;
+		case 'price':
+			$price = warifu_price( $post_id );
+			if ( '' === $price ) {
+				echo '<span style="color: lightgrey">---</span>';
+			} else {
+				echo esc_html( $price );
 			}
 			break;
 		case 'parent':
@@ -195,7 +218,7 @@ add_action( 'manage_license_posts_custom_column', function ( $column, $post_id )
 					esc_html( get_the_title( $post->post_parent ) )
 				);
 			} else {
-				echo '---';
+				echo '<span style="color: lightgrey">---</span>';
 			}
 			break;
 		case 'count':

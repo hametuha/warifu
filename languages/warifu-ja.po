@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Warifu\n"
-"POT-Creation-Date: 2017-03-07 17:32+0900\n"
-"PO-Revision-Date: 2017-03-07 22:23+0900\n"
+"POT-Creation-Date: 2017-03-10 14:12+0900\n"
+"PO-Revision-Date: 2017-03-10 14:13+0900\n"
 "Last-Translator: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
 "Language-Team: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
 "Language: ja\n"
@@ -30,27 +30,27 @@ msgstr "申し訳ございません、Gumroadからの応答がありません�
 msgid "Mmm... This license is invalid."
 msgstr "うーん、このラインセスは無効です。"
 
-#: functions/license.php:202
+#: functions/license.php:214
 msgid "License not found."
 msgstr "ライセンスが見つかりませんでした。"
 
-#: functions/license.php:225 hooks/rest.php:50
+#: functions/license.php:237 hooks/rest.php:50
 msgid "This site is already registered."
 msgstr "このサイトはすでに登録済みです。"
 
-#: functions/license.php:243
+#: functions/license.php:255
 msgid "Site limit exceeded."
 msgstr "サイトの登録制限を超えました。"
 
-#: functions/license.php:405
+#: functions/license.php:417
 msgid "Active"
 msgstr "有効"
 
-#: functions/license.php:410 templates/admin-sites.php:66
+#: functions/license.php:422 templates/admin-sites.php:66
 msgid "Inactive"
 msgstr "停止中"
 
-#: functions/license.php:415 hooks/customer.php:43 hooks/meta_box.php:12
+#: functions/license.php:427 hooks/customer.php:43 hooks/meta_box.php:12
 msgid "Undefined"
 msgstr "不明"
 
@@ -62,7 +62,7 @@ msgstr "ライセンスが空です。"
 msgid "Loading..."
 msgstr "読込中..."
 
-#: functions/template.php:193
+#: functions/template.php:186
 msgid "Buy at gumroad"
 msgstr "Gumroadで購入"
 
@@ -164,35 +164,43 @@ msgstr ""
 "もしプロダクトURIが<code>https://gumroad.com/l/QMGY</code>なら、パーマリンク"
 "は<code>OMGY</code>です。"
 
-#: hooks/license.php:89
+#: hooks/license.php:89 hooks/license.php:180
+msgid "Price"
+msgstr "価格"
+
+#: hooks/license.php:96
+msgid "This license price."
+msgstr "このライセンスの価格です。"
+
+#: hooks/license.php:103
 msgid "Register Limit"
 msgstr "制限を登録する"
 
-#: hooks/license.php:96
+#: hooks/license.php:110
 msgid "Registration limit for this license. 0 means infinite."
 msgstr "このライセンスへの登録数。0は無制限を意味します。"
 
-#: hooks/license.php:103
+#: hooks/license.php:117
 msgid "Validate URL"
 msgstr "検証URL"
 
-#: hooks/license.php:111
+#: hooks/license.php:125
 msgid "This URL is for validation."
 msgstr "このURLは検証用です。"
 
-#: hooks/license.php:115
+#: hooks/license.php:129
 msgid "After saving GUID, you can get URL!"
 msgstr "GUIDを保存したあと、URLが取得できます！"
 
-#: hooks/license.php:126
+#: hooks/license.php:140
 msgid "If you enter Gumroad GUID, widgets will be embed"
 msgstr "GumroadのGUIDを入力すると、ウィジェットが表示されます。"
 
-#: hooks/license.php:165
+#: hooks/license.php:179
 msgid "Site"
 msgstr "サイト"
 
-#: hooks/license.php:168
+#: hooks/license.php:183
 msgid "Parent"
 msgstr "親"
 
@@ -493,7 +501,7 @@ msgstr ""
 "サポートを受けるためには<a rel=\"nofollow\" href=\"%s\">ログイン</a>する必要"
 "があります。"
 
-#: warifu.php:23
+#: warifu.php:30
 #, php-format
 msgid ""
 "[Warifu] PHP <code>%s</code> is required, but your version is <code>%s</"

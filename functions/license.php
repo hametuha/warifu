@@ -94,6 +94,18 @@ function warifu_limit( $post = null ) {
 }
 
 /**
+ * Get price for license.
+ *
+ * @param null|int|WP_Post $post
+ *
+ * @return mixed
+ */
+function warifu_price( $post = null ) {
+	$post = get_post( $post );
+	return get_post_meta( $post->ID, '_warifu_price', true );
+}
+
+/**
  * Registered customer count.
  *
  * @package warifu
