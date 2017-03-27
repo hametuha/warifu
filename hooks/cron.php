@@ -11,18 +11,18 @@
  */
 add_action( 'init', function() {
 	/**
-	 * warifu_do_cron
+	 * warifu_should_do_cron
 	 *
 	 * @since 1.0.0
 	 * @package warifu
 	 * @param bool $do_cron
 	 * @return bool
 	 */
-	$do_cron = apply_filters( 'warifu_do_cron', true );
+	$do_cron = apply_filters( 'warifu_should_do_cron', true );
 	if ( ! $do_cron ) {
 		return;
 	}
-	if ( ! wp_next_scheduled( 'warifu_check_license' ) ) {
+	if ( ! wp_next_scheduled( 'warifu_do_cron' ) ) {
 		wp_schedule_event( current_time( 'timestamp', true ), 'daily', 'warifu_do_cron' );
 	}
 } );
