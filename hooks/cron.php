@@ -40,6 +40,7 @@ add_action( 'warifu_do_cron', function() {
 	while ( $query->have_posts() ) {
 		$query->the_post();
 		$product_id = get_the_ID();
+		$guid       = warifu_guid( $product_id );
 		// Making license list
 		$licenses = [];
 		foreach ( get_posts( [
@@ -56,7 +57,6 @@ add_action( 'warifu_do_cron', function() {
 		}
 		// Process them all
 		foreach ( $licenses as $license => $post_ids ) {
-			$guid = warifu_guid( $product_id );
 			$result = warifu_get_license_info( $guid, $license );
 			if ( is_wp_error( $result ) && 'invalid_license' == $result->get_error_code() ) {
 				// Oops, this license is invalid! We have to deactivate this license...
@@ -67,6 +67,8 @@ add_action( 'warifu_do_cron', function() {
 						'post_status' => 'private',
 					] );
 				}
+			} elseif ( $result && defined( 'WP_CLI' ) ) {
+				WP_CLI::line( sprintf( __( 'License %1$s for %2$s is valid.', 'warifu' ), $license, $guid ) );
 			}
 		}
 	}

@@ -66,7 +66,12 @@ function warifu_get_license_info( $guid, $license ) {
 	if ( ! $result ) {
 		return new WP_Error( 'invalid_response', __( 'Sorry, but failed to get response from Gumroad.', 'warifu' ), [ 'status' => 400 ] );
 	}
-	if ( ( $json = json_decode( $result ) ) && $json->success ) {
+	// If return is mal-formed, this may be gumroads, error
+	$json = json_decode( $result );
+	if ( ! $json || ! isset( $json->success ) ) {
+		return new WP_Error( 'invalid_response', __( 'Sorry, but failed to get response from Gumroad.', 'warifu' ), [ 'status' => 400 ] );
+	}
+	if ( $json->success ) {
 		return $json;
 	} else {
 		return new WP_Error( 'invalid_license', __( 'Mmm... This license is invalid.', 'warifu' ), [ 'status' => 403 ] );
